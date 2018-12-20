@@ -1,0 +1,5 @@
+Custom (Composite) License
+
+See the individual directories for their own license files. The cosa and install
+directories use the BSD 3-Clause License, but the ride-src and qed-src files have
+their own licenses.
