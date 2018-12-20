@@ -10,7 +10,7 @@ module dmem
    output reg [`DATA_LEN-1:0] rdata
    );
 
-   reg [`DATA_LEN-1:0] 	      mem [0:2047];
+   reg [`DATA_LEN-1:0] 	      mem [0:31];
    
    always @ (posedge clk) begin
       rdata <= mem[addr[10:0]];
