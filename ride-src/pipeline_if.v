@@ -63,13 +63,16 @@ module pipeline_if
 	     .invalid2(invalid2)
 	     );
 
+   // EDIT: manually cut predict_cond and assign it to 0
+   assign predict_cond = 1'b0;
+   wire                     cut_predict_cond;
    gshare_predictor gsh
      (
       .clk(clk),
       .reset(reset),
       .pc(pc),
       .hit_bht(hit),
-      .predict_cond(predict_cond),
+      .predict_cond(cut_predict_cond),
       .we(btbpht_we),
       .wcond(pht_wcond),
       .went(btbpht_pc[2+:`GSH_BHR_LEN] ^ pht_bhr),
