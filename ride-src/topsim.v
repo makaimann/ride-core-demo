@@ -17,16 +17,25 @@ module top
 //   wire 	    clk;
 //   wire 	    reset_x;
 
-
+   (* keep *)
    wire [`ADDR_LEN-1:0] pc;
+   (* keep *)
    wire [4*`INSN_LEN-1:0] idata;
+   (* keep *)
    wire [8:0] 		  imem_addr;
+   (* keep *)
    wire [`DATA_LEN-1:0]   dmem_data;
+   (* keep *)
    wire [`DATA_LEN-1:0]   dmem_wdata;
+   (* keep *)
    wire [`ADDR_LEN-1:0]   dmem_addr;
+   (* keep *)
    wire 		  dmem_we;
+   (* keep *)
    wire [`DATA_LEN-1:0]   dmem_wdata_core;
+   (* keep *)
    wire [`ADDR_LEN-1:0]   dmem_addr_core;
+   (* keep *)
    wire 		  dmem_we_core;
 
    wire 		  utx_we;

@@ -530,9 +530,13 @@ module pipeline
 	 npc_if <= npc;
 	 pc_if <= pc;
 	 inst1_if <= inst1;
-	 inst2_if <= inst2;
+	 // EDIT
+	 //inst2_if <= inst2;
+	 inst2_if <= 32'd0;
 	 inv1_if <= 0;
-	 inv2_if <= invalid2_pipe;
+	 //inv2_if <= invalid2_pipe;
+	 inv2_if <= 1'b1;
+	 // EDIT END
 	 bhr_if <= bhr;
 	 
       end
