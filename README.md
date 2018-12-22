@@ -5,6 +5,12 @@ As an example, we use the RIDECORE Out of Order RISC-V Processor. This tutorial 
 bug was discovered in the multiply decoder of this processor using SQED. It was fixed in this 
 [commit](https://github.com/ridecore/ridecore/commit/200c6a663e01cb2231004bb2543e7ce8b1c92cca)
 
+# License
+This demo has a composite license, because there are multiple components each with their own license. Please view the license files in the sub-directories. For convenience, they have been linked here: 
+* Model checker and its configuration files -- cosa: [BSD LICENSE](./cosa/LICENSE)
+* RIDECORE source files -- ride-src: [Tokyo Institute of Technology and Regents of the University of California LICENSE](./ride-src/LICENSE)
+* QED module -- qed-src: [Academic and Government Use Only](./qed-src/LICENSE)
+
 # Installing Dependencies
 In the `install` directory, you will find a Dockerfile, a script for installing dependencies on Debian-based systems,
 and a README with instructions for using either option.
@@ -108,6 +114,8 @@ You can run CoSA on this problem file with: `CoSA --problems ./cosa/problem.txt`
 You're welcome to increase the verbosity level of CoSA using the flag: `-v <1..4>`.
 
 It takes about 10 minutes to find the bug. CoSA will print a minimal trace to the terminal, and dump more information to a vcd file. If you look at the opcode of the instruction in the counter-example, you will see a few multiplies, which trigger the bug. You can see from `inst_constraint.sv` that the multiply opcode is `0110011` (decimal: `51`). You will see that `pipe.num_orig_insts == pipe.num_dup_insts` at the end of the trace, but the register file (`pipe.aregfile.regfile.mem`) is not QED consistent.
+
+There's also the optional file `covers.txt` in `./cosa/simple_check` which runs some cover properties on a cached version of the model (to make it faster). You can run this the same way as the problem file.
 
 ## Fix the bug
 The last commit simply applies the bug fix that was implemented in the actual RIDECORE code. If you run CoSA again, it will not find a bug at bound 24 anymore. 

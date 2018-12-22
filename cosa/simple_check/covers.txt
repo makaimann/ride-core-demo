@@ -1,8 +1,7 @@
 [GENERAL]
-model_files: ../ridecore.vlist[top],../reset_procedure.ets
+model_files: cached.btor
 abstract_clock: True
 vcd: True
-no_arrays: True
 
 [DEFAULT]
 bmc_length: 10
@@ -24,7 +23,7 @@ expected: False
 
 [SANITY]
 description: "Check basic cover property"
-properties: 'pipe.aregfile.regfile.mem[22]' = 0_32
+properties: pipe.aregfile.regfile.mem[22_5] = 0_32
 verification: safety
 expected: False
 
