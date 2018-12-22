@@ -109,5 +109,7 @@ You're welcome to increase the verbosity level of CoSA using the flag: `-v <1..4
 
 It takes about 10 minutes to find the bug. CoSA will print a minimal trace to the terminal, and dump more information to a vcd file. If you look at the opcode of the instruction in the counter-example, you will see a few multiplies, which trigger the bug. You can see from `inst_constraint.sv` that the multiply opcode is `0110011` (decimal: `51`). You will see that `pipe.num_orig_insts == pipe.num_dup_insts` at the end of the trace, but the register file (`pipe.aregfile.regfile.mem`) is not QED consistent.
 
+There's also the optional file `covers.txt` in `./cosa/simple_check` which runs some cover properties on a cached version of the model (to make it faster). You can run this the same way as the problem file.
+
 ## Fix the bug
 The last commit simply applies the bug fix that was implemented in the actual RIDECORE code. If you run CoSA again, it will not find a bug at bound 24 anymore. 
