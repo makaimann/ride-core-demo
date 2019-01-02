@@ -10,6 +10,8 @@ module top
 //   input 	    RXD,
 //   output reg [7:0] LED
    input clk,
+// EDIT: make instruction a top-level input
+   input [`INSN_LEN-1:0] instruction,
    input reset_x
    );
 
@@ -48,6 +50,24 @@ module top
    wire [`ADDR_LEN-1:0]   prog_loadaddr = 0;
    wire 		  prog_dmem_we = 0;
    wire 		  prog_imem_we = 0;
+
+   // EDIT: Use the inst_constraint module to constrain instruction to be
+   //       a valid instruction from the ISA
+   (* keep *)
+   wire [6:0] opcode;
+   (* keep *)
+   wire [4:0] rd;
+   (* keep *)
+   wire [4:0] rs1;
+   (* keep *)
+   wire [4:0] rs2;
+   assign opcode = instruction[6:0];
+   assign rd = instruction[11:7];
+   assign rs1 = instruction[19:15];
+   assign rs2 = instruction[24:20];
+   inst_constraint inst_constraint0(.clk(clk),
+                                    .instruction(instruction));
+   // EDIT END
 /*   
    assign utx_we = (dmem_we_core && (dmem_addr_core == 32'h0)) ? 1'b1 : 1'b0;
    assign finish_we = (dmem_we_core && (dmem_addr_core == 32'h8)) ? 1'b1 : 1'b0;
@@ -79,8 +99,10 @@ module top
       .RST_X_O(reset_x)
       );
 */
+   // EDIT: wire up the instruction to the new inst1 port
    pipeline pipe
      (
+      .inst1(instruction),
       .clk(clk),
       .reset(~reset_x | prog_loading),
       .pc(pc),

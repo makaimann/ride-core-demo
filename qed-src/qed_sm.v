@@ -1,3 +1,8 @@
+// Copyright (c) Stanford University
+//
+// This source code is patent protected and being made available under the
+// terms explained in the LICENSE file in this directory.
+
 `include "qed.vh"
   
 module qed_sm (// input
