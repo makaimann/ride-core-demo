@@ -60,7 +60,7 @@ module modify_instruction (qic_qimux_instruction,
    
    
    assign ins_lw    = {new_simm12, 5'b0, funct3, new_rd, opcode};
-   assign ins_sw    = {new_simm7, 5'b0, new_rs1, funct3, imm5, opcode};
+   assign ins_sw    = {new_simm7, new_rs2, 5'b0, funct3, imm5, opcode};
    assign ins_aluimm = {simm12, new_rs1, funct3, new_rd, opcode};
    assign ins_alureg = {funct7, new_rs2, new_rs1, funct3, new_rd, opcode};
       

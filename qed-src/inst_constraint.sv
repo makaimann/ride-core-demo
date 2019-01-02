@@ -100,7 +100,7 @@ module inst_constraint(clk,
 
    // lw and sw constraints => to allow for finite memory instantiated in dmem by ridecore
    assign LW = ((rs1 == 5'b00000) && (rd < 16) && (opcode == 7'b0000011) && (funct3 == 3'b010) && (instruction[31:30] == 2'b00));
-   assign SW = ((rs2 == 5'b00000) && (rs1 < 16) && (opcode == 7'b0100011) && (funct3 == 3'b010) && (instruction[31:30] == 2'b00));
+   assign SW = ((rs1 == 5'b00000) && (rs2 < 16) && (opcode == 7'b0100011) && (funct3 == 3'b010) && (instruction[31:30] == 2'b00));
 
    wire 	allowed_mem;
    assign allowed_mem = (LW || SW);
