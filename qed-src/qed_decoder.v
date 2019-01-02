@@ -1,3 +1,8 @@
+// Copyright (c) Stanford University
+//
+// This source code is patent protected and being made available under the
+// terms explained in the LICENSE file in this directory.
+
 // decoder for RISCV
 // only supports a subset of R,I,S type instructions see riscv-spec-v2.1.pdf
 // used along with strict input constraints to ifu_qed_instruction (specified for the formal tool)
