@@ -1,5 +1,12 @@
 Custom (Composite) License
 
-See the individual directories for their own license files. The cosa and install
-directories use the BSD 3-Clause License, but the ride-src and qed-src files have
-their own licenses.
+This repository contains code from several sources.  Each sub-directory has its
+own LICENSE file explaining the terms under which the code in that
+sub-directory is being made available.  Please note that the terms of licensing
+and LICENSE files are not the same across the sub-directories:
+- cosa and install are licensed under the 3-clause BSD license
+- qed-src contains patent-protected code licensed under a custom license
+- ride-src also contains a custom license
+
+Please consult each individual LICENSE file for the specific terms for its
+corresponding sub-directory.
