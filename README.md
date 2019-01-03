@@ -5,6 +5,10 @@ As an example, we use the RIDECORE Out of Order RISC-V Processor. This tutorial 
 bug was discovered in the multiply decoder of this processor using SQED. It was fixed in this 
 [commit](https://github.com/ridecore/ridecore/commit/200c6a663e01cb2231004bb2543e7ce8b1c92cca)
 
+# Installing Dependencies
+In the `install` directory, you will find a Dockerfile, a script for installing dependencies on Debian-based systems,
+and a README with instructions for using either option.
+
 # Navigating commits
 Start the demo using `./start.sh` and move forward through commits using `./next.sh`. At each step, 
 you can see the changed files with `git diff HEAD^`.
