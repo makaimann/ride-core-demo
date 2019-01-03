@@ -1,0 +1,8 @@
+dist: xenial
+
+sudo: required
+
+install:
+  - source ./install/linux-install.sh
+
+script: CoSA --problems ./cosa/simple_check/covers-verilog.txt --devel
