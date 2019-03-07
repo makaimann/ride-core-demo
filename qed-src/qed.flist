@@ -1,9 +1,0 @@
-$DV_ROOT/design/sys/iop/spc/qed/inst_constraint.sv
-$DV_ROOT/design/sys/iop/spc/qed/inst_constraint_bind.sv
-$DV_ROOT/design/sys/iop/spc/qed/qed_sm.v
-$DV_ROOT/design/sys/iop/spc/qed/qed_decoder.v
-$DV_ROOT/design/sys/iop/spc/qed/modify_instruction.v
-$DV_ROOT/design/sys/iop/spc/qed/qed_instruction_mux.v
-$DV_ROOT/design/sys/iop/spc/qed/qed_i_cache.v
-$DV_ROOT/design/sys/iop/spc/qed/qed.v
-$DV_ROOT/design/sys/iop/spc/qed/qed.vh
