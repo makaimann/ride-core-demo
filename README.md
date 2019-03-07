@@ -5,9 +5,16 @@ As an example, we use the RIDECORE Out of Order RISC-V Processor. This tutorial 
 bug was discovered in the multiply decoder of this processor using SQED. It was fixed in this 
 [commit](https://github.com/ridecore/ridecore/commit/200c6a663e01cb2231004bb2543e7ce8b1c92cca)
 
+# License
+This demo has a composite license, because there are multiple components each with their own license. 
+Please view the license files in the sub-directories. For convenience, they have been linked here:
+
+* Model checker and its configuration files -- cosa: [BSD LICENSE](./cosa/LICENSE)
+* RIDECORE source files -- ride-src: [Tokyo Institute of Technology and Regents of the University of California LICENSE](./ride-src/LICENSE)
+* QED module -- qed-src: [Academic and Government Use Only](./qed-src/LICENSE)
+
 # Installing Dependencies
-In the `install` directory, you will find a Dockerfile, a script for installing dependencies on Debian-based systems,
-and a README with instructions for using either option.
+In the `install` directory, you will find a Dockerfile, a script for installing dependencies on Debian-based systems, and a README with instructions for using either option.
 
 # Navigating commits
 Start the demo using `./start.sh` and move forward through commits using `./next.sh`. At each step, 

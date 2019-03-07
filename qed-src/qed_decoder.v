@@ -1,3 +1,16 @@
+/*
+ * This file is part of the ride-core-demo repository
+ * It is an implementation of Symbolic Quick Error Detection
+ *   Patent WO2016200723A1
+ *   2016 - current date
+ *
+ * This technique and associated files are released under a
+ *   restricted license, with permissions for academic and
+ *   government use.
+ *
+ * See the relevant section of the LICENSE file in this directory.
+ */
+
 // decoder for RISCV
 // only supports a subset of R,I,S type instructions see riscv-spec-v2.1.pdf
 // used along with strict input constraints to ifu_qed_instruction (specified for the formal tool)

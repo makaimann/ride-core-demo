@@ -1,3 +1,16 @@
+/*
+ * This file is part of the ride-core-demo repository
+ * It is an implementation of Symbolic Quick Error Detection
+ *   Patent WO2016200723A1
+ *   2016 - current date
+ *
+ * This technique and associated files are released under a
+ *   restricted license, with permissions for academic and
+ *   government use.
+ *
+ * See the relevant section of the LICENSE file in this directory.
+ */
+
 `include "qed.vh"
 
 module qed_i_cache (/*AUTOARG*/
