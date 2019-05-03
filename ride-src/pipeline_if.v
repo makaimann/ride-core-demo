@@ -51,17 +51,17 @@ module pipeline_if
 		       .invalid(invalid2)
 		       );
 
-   btb brtbl(
-	     .clk(clk),
-	     .reset(reset),
-	     .pc(pc),
-	     .hit(hit),
-	     .jmpaddr(pred_pc),
-	     .we(btbpht_we),
-	     .jmpsrc(btbpht_pc),
-	     .jmpdst(btb_jmpdst),
-	     .invalid2(invalid2)
-	     );
+   // btb brtbl(
+	 //     .clk(clk),
+	 //     .reset(reset),
+	 //     .pc(pc),
+	 //     .hit(hit),
+	 //     .jmpaddr(pred_pc),
+	 //     .we(btbpht_we),
+	 //     .jmpsrc(btbpht_pc),
+	 //     .jmpdst(btb_jmpdst),
+	 //     .invalid2(invalid2)
+	 //     );
 
    // EDIT: manually cut predict_cond and assign it to 0
    assign predict_cond = 1'b0;
