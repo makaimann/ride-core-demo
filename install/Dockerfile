@@ -14,10 +14,10 @@ RUN pip3 install cython
 RUN cd boolector && ./contrib/setup-lingeling.sh && ./contrib/setup-btor2tools.sh && ./configure.sh --python --py3 && cd build && make -j16
 ENV PYTHONPATH="/home/ride-demo/boolector/build/lib:${PYTHONPATH}"
 
-RUN git clone -b dev https://github.com/cristian-mattarei/CoSA
+RUN git clone https://github.com/cristian-mattarei/CoSA
 RUN cd CoSA && pip3 install -e .
 
-RUN git clone -b sqed https://github.com/makaimann/pysmt
+RUN git clone https://github.com/makaimann/pysmt
 RUN cd pysmt && pip3 install -e .
 ENV PYTHONPATH="/home/ride-demo/pysmt/bindings:${PYTHONPATH}"
 ENV LD_LIBRARY_PATH="/home/ride-demo/pysmt/bindings:${LD_LIBRARY_PATH}"

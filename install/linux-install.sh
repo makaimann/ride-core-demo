@@ -4,10 +4,6 @@
 
 # This script does require sudo, and needs to be sourced (source linux-install.sh)
 
-# Note: There are some minor changes to pysmt, so this demo uses a fork
-#       In the near future, we hope these changes will be merged into the master branch of pysmt
-# Note 2: This is using the dev branch of CoSA which has several improvements over master and will also be merged soon
-
 SRCING="no"
 if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
     SRCING="yes"
@@ -43,7 +39,7 @@ if [ ! -d "./boolector/build/lib" ]; then
 fi
 
 cd $SDIR
-git clone -b dev https://github.com/cristian-mattarei/CoSA
+git clone https://github.com/cristian-mattarei/CoSA
 cd CoSA && sudo python3 -m pip install -e .
 # add local and virtualenv bin directories to path (where python3 -m pip puts CoSA)
 export PATH="${HOME}/.local/bin:${PATH}"
@@ -51,10 +47,10 @@ if [ "${VIRTUAL_ENV}" != "" ]; then
     export PATH="${VIRTUAL_ENV}/bin:${PATH}"
 fi
 
-# overwrite the master version of pysmt that CoSA installed with the fork
+# overwrite the pip version of pysmt that CoSA installed with the master branch
 cd $SDIR
 sudo python3 -m pip uninstall --yes pysmt
-git clone -b sqed https://github.com/makaimann/pysmt
+git clone https://github.com/pysmt/pysmt.git
 cd pysmt && sudo python3 -m pip install -e .
 cd $SDIR
 
