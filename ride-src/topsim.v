@@ -132,7 +132,39 @@ module top
 		      .wdata(prog_loaddata),
 		      .we(prog_imem_we)
 		      );
-/*   
+
+`ifdef FORMAL
+   reg [3:0] state_counter = 0;
+
+   always @(posedge clk) begin
+      state_counter = state_counter + 1;
+   end
+
+   always @* begin
+      assume ((state_counter <= 3) == !reset_x);
+      if (!reset_x) begin
+         assume(opcode == 7'b1111111);
+      end
+   end
+
+   for(genvar i = 0; i < 32; i=i+1) begin
+      always @* begin
+         if (state_counter == 0) begin
+            assume ( pipe.aregfile.regfile.mem[i] == 0 );
+         end
+      end
+   end
+
+   for (genvar i = 1; i < 2; i=i+1) begin
+      always @(posedge clk) begin
+         if (state_counter > 3) begin
+            assert property ( (pipe.num_orig_insts == pipe.num_dup_insts) -> (pipe.aregfile.regfile.mem[i] == pipe.aregfile.regfile.mem[i+16]) );
+         end
+      end
+   end
+
+`endif
+/*
    SingleUartTx sutx
      (
       .CLK(clk),
