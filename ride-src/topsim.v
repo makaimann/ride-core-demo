@@ -147,10 +147,75 @@ module top
       end
    end
 
+   // set array values to zero
    for(genvar i = 0; i < 32; i=i+1) begin
       always @* begin
-         if (state_counter == 0) begin
+         if (state_counter < 3) begin
             assume ( pipe.aregfile.regfile.mem[i] == 0 );
+         end
+      end
+   end
+
+   for(genvar i = 0; i < 64; i=i+1) begin
+      always @* begin
+         if (state_counter < 3) begin
+            assume(datamemory.mem[i] == 0);
+         end
+      end
+   end
+
+   for(genvar i = 0; i < 64; i=i+1) begin
+      always @* begin
+         if (state_counter < 3) begin
+            assume(pipe.rob.dst[i] == 0);
+         end
+      end
+   end
+
+   for(genvar i = 0; i < 64; i=i+1) begin
+      always @* begin
+         if (state_counter < 3) begin
+            assume(pipe.rregfile.datarr[i] == 0);
+         end
+      end
+   end
+
+   for(genvar i = 0; i < 128; i=i+1) begin
+      always @* begin
+         if (state_counter < 3) begin
+            assume(pipe.qed0.qic.i_cache[i] == 0);
+         end
+      end
+    end
+
+   for(genvar i = 0; i < 128; i=i+1) begin
+      always @* begin
+         if (state_counter < 3) begin
+            assume(pipe.sb.data[i] == 0);
+         end
+      end
+   end
+
+   for(genvar i = 0; i < 1024; i=i+1) begin
+      always @(posedge clk) begin
+         if (state_counter < 3) begin
+            assume property (pipe.pipe_if.gsh.prhisttbl.pht1.mem[i] == 0);
+         end
+      end
+   end
+
+   for(genvar i = 0; i < 1024; i=i+1) begin
+        always @* begin
+           if (state_counter < 3) begin
+              assume(pipe.pipe_if.gsh.prhisttbl.pht0.mem[i] == 0);
+           end
+        end
+   end
+
+   for(genvar i = 0; i < 512; i=i+1) begin
+      always @* begin
+         if (state_counter < 3) begin
+            assume(instmemory.mem[i] == 0);
          end
       end
    end
