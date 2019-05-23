@@ -1,19 +1,19 @@
 [GENERAL]
-model_file: ridecore.vlist[top],reset_procedure.ets
+model_files: ridecore.vlist[top],init.ssts
 # clock_behaviors: DetClock(clk, 1)
 abstract_clock: True
+# ideally would use arrays -- try just fixing the initial values for dmem and regfile.mem
+no_arrays: True
+default_initial_value: 0
 vcd: True
 
 [DEFAULT]
 bmc_length: 15
 solver_name: btor
-precondition: reset_done
-no_arrays: True
-default_initial_value: 0
 
 [QED]
 description: "Check for Symbolic QED consistency"
-formula: property.txt
+properties: property.txt
 verification: safety
 # assumptions: stable_inst.txt
 # start checking at bound 23
