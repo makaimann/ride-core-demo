@@ -65,7 +65,10 @@ module pipeline_if
 
    // EDIT: manually cut predict_cond and assign it to 0
    assign predict_cond = 1'b0;
+   // EDIT: manually cut bhr and assign it to 0
+   assign bhr = 1'b0;
    wire                     cut_predict_cond;
+   wire                     cut_bhr;
    gshare_predictor gsh
      (
       .clk(clk),
@@ -80,7 +83,7 @@ module pipeline_if
       .prmiss(prmiss),
       .prsuccess(prsuccess),
       .prtag(prtag),
-      .bhr_master(bhr),
+      .bhr_master(cut_bhr),
       .spectagnow(spectagnow)
       );
    
