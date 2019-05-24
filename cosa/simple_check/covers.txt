@@ -1,5 +1,5 @@
 [GENERAL]
-model_file: cached.btor
+model_files: cached.btor
 abstract_clock: True
 vcd: True
 
@@ -11,24 +11,24 @@ solver_name: btor
 
 [CAN_DUP]
 description: "Can duplicate instructions"
-formula: 'pipe.qed_exec_dup' != next('pipe.qed_exec_dup')
+properties: 'pipe.qed_exec_dup' != next('pipe.qed_exec_dup')
 verification: safety
 expected: False
 
 [CAN_CHANGE_INST]
 description: "Can change instruction"
-formula: 'instruction' != next('instruction')
+properties: 'instruction' != next('instruction')
 verification: safety
 expected: False
 
 [SANITY]
 description: "Check basic cover property"
-formula: pipe.aregfile.regfile.mem[22_5] = 0_32
+properties: pipe.aregfile.regfile.mem[22_5] = 0_32
 verification: safety
 expected: False
 
 # [NUM_INST]
 # description: "Check antecedent"
-# formula: ((pipe.num_orig_insts = pipe.num_dup_insts) & (pipe.num_orig_insts != 0_16))
+# properties: ((pipe.num_orig_insts = pipe.num_dup_insts) & (pipe.num_orig_insts != 0_16))
 # verification: safety
 # expected: False
