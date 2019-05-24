@@ -8,7 +8,7 @@ default_initial_value: 0
 vcd: True
 
 [DEFAULT]
-bmc_length: 15
+bmc_length: 10
 solver_name: btor
 
 [QED]
