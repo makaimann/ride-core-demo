@@ -12,7 +12,7 @@ fi
 set -e
 
 sudo apt-get update
-sudo apt-get install -y clang cmake libpcre3 wget unzip build-essential python3 python3-pip automake libgmp-dev curl nano python3-dev libboost-dev default-jdk libclang-dev llvm llvm-dev lbzip2 libncurses5-dev git libtool iverilog bison flex libreadline-dev gawk tcl-dev libffi-dev graphviz xdot pkg-config gtkwave
+sudo apt-get install -y clang cmake libpcre3 wget unzip build-essential python3 python3-pip automake libgmp-dev curl nano python3-dev libboost-dev default-jdk libclang-dev llvm llvm-dev lbzip2 libncurses5-dev git libtool iverilog bison flex libreadline-dev gawk tcl-dev libffi-dev graphviz xdot pkg-config gtkwave libgmp-dev libmpfr-dev libmpc-dev
 
 SDIR=`pwd`
 
